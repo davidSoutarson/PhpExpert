@@ -1,0 +1,362 @@
+mysql> SHOW DATABASES;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| bdmonsitewordpress |
+| bulletin_meteo     |
+| dbtest             |
+| eloi               |
+| mysql              |
+| nouvelle-base      |
+| performance_schema |
+| projet_image       |
+| sys                |
+| test2              |
+| test_de_base       |
+| wp-01-229855       |
+| wp-02-229855       |
++--------------------+
+14 rows in set (0.00 sec)
+
+mysql> USE dbtest;
+Database changed
+mysql> SHOW TABLES;
++------------------+
+| Tables_in_dbtest |
++------------------+
+| auteur           |
+| livre            |
++------------------+
+2 rows in set (0.02 sec)
+
+mysql> DESCRIBE auteur;
++-------+------------------+------+-----+---------+----------------+
+| Field | Type             | Null | Key | Default | Extra          |
++-------+------------------+------+-----+---------+----------------+
+| id    | int(10) unsigned | NO   | PRI | NULL    | auto_increment |
+| nom   | varchar(10)      | YES  |     | NULL    |                |
++-------+------------------+------+-----+---------+----------------+
+2 rows in set (0.08 sec)
+
+mysql> DESCRIBE livre;
++-----------+-----------------------+------+-----+---------+----------------+
+| Field     | Type                  | Null | Key | Default | Extra          |
++-----------+-----------------------+------+-----+---------+----------------+
+| id        | int(10) unsigned      | NO   | PRI | NULL    | auto_increment |
+| titre     | varchar(20)           | YES  |     | NULL    |                |
+| auteur_id | smallint(10) unsigned | NO   |     | NULL    |                |
++-----------+-----------------------+------+-----+---------+----------------+
+3 rows in set (0.01 sec)
+mysql> SELECT * FROM auteur;
++----+--------+
+| id | nom    |
++----+--------+
+|  1 | Claude |
+|  2 | Marie  |
+|  3 | Pierre |
+|  4 | Jean   |
++----+--------+
+4 rows in set (0.00 sec)
+
+mysql> SELECT * FROM livre;
++----+---------------------+-----------+
+| id | titre               | auteur_id |
++----+---------------------+-----------+
+|  1 | PHP et Mysql        |         2 |
+|  2 | Apprendre PHP       |         2 |
+|  3 | Cours de SQL        |         3 |
+|  4 | PHP par la pratique |         4 |
+|  5 | Projet PHP          |         2 |
+|  6 | PHP et Ajax         |         3 |
++----+---------------------+-----------+
+6 rows in set (0.00 sec)
+
+mysql> SELECT A.id , L.id FROM auteur AS A , livre  AS L;
++----+----+
+| id | id |
++----+----+
+|  1 |  1 |
+|  2 |  1 |
+|  3 |  1 |
+|  4 |  1 |
+|  1 |  2 |
+|  2 |  2 |
+|  3 |  2 |
+|  4 |  2 |
+|  1 |  3 |
+|  2 |  3 |
+|  3 |  3 |
+|  4 |  3 |
+|  1 |  4 |
+|  2 |  4 |
+|  3 |  4 |
+|  4 |  4 |
+|  1 |  5 |
+|  2 |  5 |
+|  3 |  5 |
+|  4 |  5 |
+|  1 |  6 |
+|  2 |  6 |
+|  3 |  6 |
+|  4 |  6 |
++----+----+
+24 rows in set (0.04 sec)
+
+mysql> SELECT id FROM auteur WHERE nom LIKE '%marie%';
++----+
+| id |
++----+
+|  2 |
++----+
+1 row in set (0.06 sec)
+
+mysql> SELECT titre FROM livre WHERE auteur_id = 2;
++---------------+
+| titre         |
++---------------+
+| PHP et Mysql  |
+| Apprendre PHP |
+| Projet PHP    |
++---------------+
+3 rows in set (0.00 sec)
+
+mysql> SELECT * FROM auteur AS A
+    -> INNER JOIN livre AS L
+    -> ON A.id = L.auteur_id
+    -> WHERE A.id =2;
++----+-------+----+---------------+-----------+
+| id | nom   | id | titre         | auteur_id |
++----+-------+----+---------------+-----------+
+|  2 | Marie |  1 | PHP et Mysql  |         2 |
+|  2 | Marie |  2 | Apprendre PHP |         2 |
+|  2 | Marie |  5 | Projet PHP    |         2 |
++----+-------+----+---------------+-----------+
+3 rows in set (0.00 sec)
+mysql> SELECT * FROM auteur AS A
+    -> INNER JOIN livre AS L
+    -> ON A.id = L.auteur_id;
++----+--------+----+---------------------+-----------+
+| id | nom    | id | titre               | auteur_id |
++----+--------+----+---------------------+-----------+
+|  2 | Marie  |  1 | PHP et Mysql        |         2 |
+|  2 | Marie  |  2 | Apprendre PHP       |         2 |
+|  3 | Pierre |  3 | Cours de SQL        |         3 |
+|  4 | Jean   |  4 | PHP par la pratique |         4 |
+|  2 | Marie  |  5 | Projet PHP          |         2 |
+|  3 | Pierre |  6 | PHP et Ajax         |         3 |
++----+--------+----+---------------------+-----------+
+6 rows in set (0.00 sec)
+
+mysql> SELECT * FROM auteur AS A INNER JOIN livre AS L ON A.id = L.auteur_id;
++----+--------+----+---------------------+-----------+
+| id | nom    | id | titre               | auteur_id |
++----+--------+----+---------------------+-----------+
+|  2 | Marie  |  1 | PHP et Mysql        |         2 |
+|  2 | Marie  |  2 | Apprendre PHP       |         2 |
+|  3 | Pierre |  3 | Cours de SQL        |         3 |
+|  4 | Jean   |  4 | PHP par la pratique |         4 |
+|  2 | Marie  |  5 | Projet PHP          |         2 |
+|  3 | Pierre |  6 | PHP et Ajax         |         3 |
++----+--------+----+---------------------+-----------+
+6 rows in set (0.00 sec)
+
+mysql> Terminal close -- exit!
+mysql> teste
+    -> ;
+ERROR 1064 (42000): Erreur de syntaxe pr�s de 'teste' � la ligne 1
+mysql> INSERT INTO `theme` ( `id` , `theme`) VALUES
+    -> (`1`, `PHP` ), (2, `MySQL` ),  (`3`, `Ajax`), ( `4`, `HTML`);
+ERROR 1054 (42S22): Champ 'theme' inconnu dans field list
+mysql> INSERT INTO `theme` ( `id` , `theme`) VALUES
+    -> (`1`,`PHP`), (2, `MySQL` ),  (`3`, `Ajax`), ( `4`, `HTML`);
+ERROR 1054 (42S22): Champ 'theme' inconnu dans field list
+mysql> SHOW TABLES,
+    -> SHOW TABLES;
+ERROR 1064 (42000): Erreur de syntaxe pr�s de '
+SHOW TABLES' � la ligne 1
+mysql> SHOW TABLES;
++------------------+
+| Tables_in_dbtest |
++------------------+
+| auteur           |
+| livre            |
+| theme            |
++------------------+
+3 rows in set (0.00 sec)
+
+mysql> INSERT INTO `theme` (`id`,`nom`) VALUES
+    -> (1,'PHP'), (2,'MySQL'),(3,'Ajax'),(4,'HTML');
+Query OK, 4 rows affected (0.04 sec)
+Enregistrements: 4  Doublons: 0  Avertissements: 0
+
+mysql> CREATE TABLE IF NOT EXISTS `theme_livre` (
+    -> `id` int(11) NOT NULL AUTO_INCREMENT,
+    -> `livre_id` int(11) NOT NULL,
+    -> `theme_id` int(11) NOT NULL,
+    -> PRIMARY KEY (`id`)
+    -> ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=9;
+Query OK, 0 rows affected (0.18 sec)
+
+mysql> SHOW TABLES;
++------------------+
+| Tables_in_dbtest |
++------------------+
+| auteur           |
+| livre            |
+| theme            |
+| theme_livre      |
++------------------+
+4 rows in set (0.00 sec)
+
+
+mysql> INSERT INTO `theme_livre` ( `id`, `livre_id`, `theme_id` ) VALUES
+    -> (1, 1, 1), (2, 2, 1), (3, 4, 1), (4, 5, 1), (5, 6, 1), (6, 1, 2), (7, 3, 1), (8, 6, 3);
+Query OK, 8 rows affected (0.03 sec)
+Enregistrements: 8  Doublons: 0  Avertissements: 0
+mysql> TEE C:/Users/tripl/Desktop/PhpExpert/Recup-dbtest.txt;
+mysql> TEE C:/Users/tripl/Desktop/PhpExpert/Recup-dbtest.txt;
+mysql> SHOW TABLES;
++------------------+
+| Tables_in_dbtest |
++------------------+
+| auteur           |
+| livre            |
+| theme            |
+| theme_livre      |
++------------------+
+4 rows in set (0.00 sec)
+
+mysql> SELECT * FROM theme;
++----+-------+
+| id | nom   |
++----+-------+
+|  1 | PHP   |
+|  2 | MySQL |
+|  3 | Ajax  |
+|  4 | HTML  |
++----+-------+
+4 rows in set (0.00 sec)
+
+mysql> SELECT * FROM theme_livre;
++----+----------+----------+
+| id | livre_id | theme_id |
++----+----------+----------+
+|  1 |        1 |        1 |
+|  2 |        2 |        1 |
+|  3 |        4 |        1 |
+|  4 |        5 |        1 |
+|  5 |        6 |        1 |
+|  6 |        1 |        2 |
+|  7 |        3 |        1 |
+|  8 |        6 |        3 |
++----+----------+----------+
+8 rows in set (0.00 sec)
+
+mysql> SELECT L.titre, T.nom FROM livre AS L
+    -> INNER JOIN theme_livre AS J
+    -> ON L.id = J.livre_id
+    -> INNER JOIN theme AS T
+    -> ON T.id = J.theme_id;
++---------------------+-------+
+| titre               | nom   |
++---------------------+-------+
+| PHP et Mysql        | PHP   |
+| Apprendre PHP       | PHP   |
+| PHP par la pratique | PHP   |
+| Projet PHP          | PHP   |
+| PHP et Ajax         | PHP   |
+| PHP et Mysql        | MySQL |
+| Cours de SQL        | PHP   |
+| PHP et Ajax         | Ajax  |
++---------------------+-------+
+8 rows in set (0.00 sec)
+mysql> TEE C:/Users/tripl/Desktop/PhpExpert/Recup-dbtest.txt;
+mysql> SELECT A.nom, T.nom
+    -> FROM auteur AS A
+    -> INNER JOIN livre AS L
+    -> ON A.id = L.auteur_id
+    -> INNER JOIN theme_livre AS J
+    -> ON L.id = J.livre_id
+    -> INNER JOIN theme AS T
+    -> ON T.id = J.theme_id;
++--------+-------+
+| nom    | nom   |
++--------+-------+
+| Marie  | PHP   |
+| Marie  | PHP   |
+| Jean   | PHP   |
+| Marie  | PHP   |
+| Pierre | PHP   |
+| Marie  | MySQL |
+| Pierre | PHP   |
+| Pierre | Ajax  |
++--------+-------+
+8 rows in set (0.00 sec)
+
+mysql> SELECT DISTINCT A.nom AS 'nom auteur', T.nom AS 'nom theme'
+    -> FROM auteur AS A
+    -> INNER JOIN livre AS L
+    -> ON A.id = L.auteur_id
+    -> INNER JOIN theme_livre AS J
+    -> ON L.id = J.livre_id
+    -> INNER JOIN theme AS T
+    -> ON T.id = J.theme_id
+    -> ORDER BY A.non, T.nom;
+ERROR 1054 (42S22): Champ 'A.non' inconnu dans order clause
+mysql> SELECT DISTINCT A.nom AS 'nom auteur', T.nom AS 'nom theme'
+    -> FROM auteur AS A
+    -> INNER JOIN livre AS L
+    -> ON A.id = L.auteur_id
+    -> INNER JOIN theme_livre AS J
+    -> ON L.id = J.livre_id
+    -> INNER JOIN theme AS T
+    -> ON T.id = J.theme_id
+    -> ORDER BY A.nom, T.nom;
++------------+-----------+
+| nom auteur | nom theme |
++------------+-----------+
+| Jean       | PHP       |
+| Marie      | MySQL     |
+| Marie      | PHP       |
+| Pierre     | Ajax      |
+| Pierre     | PHP       |
++------------+-----------+
+5 rows in set (0.00 sec)
+
+mysql> help
+
+For information about MySQL products and services, visit:
+   http://www.mysql.com/
+For developer information, including the MySQL Reference Manual, visit:
+   http://dev.mysql.com/
+To buy MySQL Enterprise support, training, or other products, visit:
+   https://shop.mysql.com/
+
+List of all MySQL commands:
+Note that all text commands must be first on line and end with ';'
+?         (\?) Synonym for `help'.
+clear     (\c) Clear the current input statement.
+connect   (\r) Reconnect to the server. Optional arguments are db and host.
+delimiter (\d) Set statement delimiter.
+ego       (\G) Send command to mysql server, display result vertically.
+exit      (\q) Exit mysql. Same as quit.
+go        (\g) Send command to mysql server.
+help      (\h) Display this help.
+notee     (\t) Don't write into outfile.
+print     (\p) Print current command.
+prompt    (\R) Change your mysql prompt.
+quit      (\q) Quit mysql.
+rehash    (\#) Rebuild completion hash.
+source    (\.) Execute an SQL script file. Takes a file name as an argument.
+status    (\s) Get status information from the server.
+tee       (\T) Set outfile [to_outfile]. Append everything into given outfile.
+use       (\u) Use another database. Takes database name as argument.
+charset   (\C) Switch to another charset. Might be needed for processing binlog with multi-byte charsets.
+warnings  (\W) Show warnings after every statement.
+nowarning (\w) Don't show warnings after every statement.
+resetconnection(\x) Clean session context.
+
+For server side help, type 'help contents'
+
+mysql> \q
