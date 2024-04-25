@@ -1,0 +1,64 @@
+# Les chemin absolue des ficher locale
+
+E:\wamp64\www\cour-PHP-2024\PhpExpert\Revoyon-les-base-de-php
+fichier-----------------
+E:\wamp64\www\cour-PHP-2024\PhpExpert\Revoyon-les-base-de-php\index.php
+______________________________________________________________________________
+
+## Chemin dossier CSS 
+E:\wamp64\www\cour-PHP-2024\PhpExpert\Revoyon-les-base-de-php\css\master.css
+_______________________________________________________________________________
+
+## Chemin dossier js
+E:\wamp64\www\cour-PHP-2024\PhpExpert\Revoyon-les-base-de-php\jS
+______________________________________________________________________________
+
+## Chemin dossier php
+E:\wamp64\www\cour-PHP-2024\PhpExpert\Revoyon-les-base-de-php\php
+______________________________________________________________________________
+
+## Chemin dossier html
+
+E:\wamp64\www\cour-PHP-2024\PhpExpert\Revoyon-les-base-de-php\html
+fichier-----------------
+E:\wamp64\www\cour-PHP-2024\PhpExpert\Revoyon-les-base-de-php\html\header.html
+
+E:\wamp64\www\cour-PHP-2024\PhpExpert\Revoyon-les-base-de-php\html\menuPrincipale.html
+
+E:\wamp64\www\cour-PHP-2024\PhpExpert\Revoyon-les-base-de-php\html\footer.html
+
+
+### chemin article-css
+E:\wamp64\www\cour-PHP-2024\PhpExpert\Revoyon-les-base-de-php\html\article-css
+fichier-----------------
+E:\wamp64\www\cour-PHP-2024\PhpExpert\Revoyon-les-base-de-php\html\article-css\les-base-du-css.html
+E:\wamp64\www\cour-PHP-2024\PhpExpert\Revoyon-les-base-de-php\html\article-css\css-avencer.html
+E:\wamp64\www\cour-PHP-2024\PhpExpert\Revoyon-les-base-de-php\html\article-css\css-expert.html
+
+### chemin article-html
+E:\wamp64\www\cour-PHP-2024\PhpExpert\Revoyon-les-base-de-php\html\article-html 
+fichier-----------------
+E:\wamp64\www\cour-PHP-2024\PhpExpert\Revoyon-les-base-de-php\html\article-html\les-base-du-html.html
+E:\wamp64\www\cour-PHP-2024\PhpExpert\Revoyon-les-base-de-php\html\article-html\html-avencer.html
+E:\wamp64\www\cour-PHP-2024\PhpExpert\Revoyon-les-base-de-php\html\article-html\html-expert.html
+
+### chemin article-JavaScript
+E:\wamp64\www\cour-PHP-2024\PhpExpert\Revoyon-les-base-de-php\html\article-JavaScript
+fichier-----------------
+E:\wamp64\www\cour-PHP-2024\PhpExpert\Revoyon-les-base-de-php\html\article-JavaScript\les-base-du-JavaScript.html
+E:\wamp64\www\cour-PHP-2024\PhpExpert\Revoyon-les-base-de-php\html\article-JavaScript\JavaScript-avencer.html
+E:\wamp64\www\cour-PHP-2024\PhpExpert\Revoyon-les-base-de-php\html\article-JavaScript\JavaScript-expert.html
+
+### chemin article-mysql
+E:\wamp64\www\cour-PHP-2024\PhpExpert\Revoyon-les-base-de-php\html\article-mysql
+fichier-----------------
+E:\wamp64\www\cour-PHP-2024\PhpExpert\Revoyon-les-base-de-php\html\article-mysql\les-base-du-mysql.html
+E:\wamp64\www\cour-PHP-2024\PhpExpert\Revoyon-les-base-de-php\html\article-mysql\mysql-avencer.html
+E:\wamp64\www\cour-PHP-2024\PhpExpert\Revoyon-les-base-de-php\html\article-mysql\mysql-expert.html
+
+### chemin article-php
+E:\wamp64\www\cour-PHP-2024\PhpExpert\Revoyon-les-base-de-php\html\article-php
+fichier-----------------
+E:\wamp64\www\cour-PHP-2024\PhpExpert\Revoyon-les-base-de-php\html\article-php\les-base-php.html
+E:\wamp64\www\cour-PHP-2024\PhpExpert\Revoyon-les-base-de-php\html\article-php\php-avencer.html
+E:\wamp64\www\cour-PHP-2024\PhpExpert\Revoyon-les-base-de-php\html\article-php\php-expert.html
