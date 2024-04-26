@@ -1,7 +1,8 @@
 <?php
-/* require_once(__DIR__ . '././article-php/les-base-php.html'); */
 
-echo 'Helo worde !!! <br>';
+echo "<p>MDR_____________________putin de chimin___!!______________________________</p>";
+
+echo 'Helo worde Scripte 2 <br>';
 
 /* mes variable*/
 $myAge = 38;
@@ -26,7 +27,7 @@ echo $mombreDecimale;
 
 #La concatenation
 
-$devise = "€ euro";
+$devise = "F franc";
 $prix = 12.90;
 
 echo '<br>' . $prix . $devise . '<br>';

@@ -1,9 +1,13 @@
-<!-- revoire le fontion dun menue php -->
+<?php
+echo "teste §§§";
+?>
+<h1>LES BASE DU PHP</h1>
+<p><a href="#">retour</a></p>
 
 <nav class="contenair-menu">
     <ul class="menu">
         <li class="menu-nivau1">
-            <a href="index.php">acceuille</a>
+            <a href="./Revoyon-les-base-de-php/index.php">acceuille</a>
         </li>
         <li class="menu-nivau1"> <a href="#">intales les bon outile</a></li>
 
@@ -97,12 +101,3 @@
         </li>
     </ul>
 </nav>
-
-<!-- 
-    les sous menue modifiable
-<ul>
-    <li>les base</li>
-    <li>avanser</li>
-    <li>expert</li>
-</ul>
--->
